@@ -1,3 +1,5 @@
+from email.mime.multipart import MIMEMultipart
+
 import requests
 import os
 from requests import session
@@ -52,4 +54,21 @@ if __name__ == '__main__':
     if'失败' not in weather_info:
         print('正在发送邮件')
         sendmail(weather_info)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
