@@ -25,21 +25,23 @@ def getweather():
         f'白天温度: {weather['daytemp']}风\n'
 
           )
+       return msg
     else:
         print(f'请求失败,原因{data}')
 
-def sendmail(self):
-    message = MIMEText(self,'html','utf-8')
-    message['From'] = Header('天气播报员','utf-8')
-    message['To'] = Header('您好','utf-8')
-    message['Subject']=Header('每日天气推送','utf-8')
+def sendmail(content):
+    message = MIMEText(content,'html','utf-8')
+    message['From'] = f'WeatherBot <{mail_user}>'
+    message['To'] = f'Master <{mail_user}>'
+    message['Subject']='每日天气推送'
     try:
         smtpObj = smtplib.SMTP_SSL('smtp.qq.com',465)
+        print('发送的邮箱为',mail_user)
         smtpObj.login(mail_user,mail_pass)
         smtpObj.sendmail(mail_user,[mail_user],message.as_string())
         print('发送成功')
     except Exception as e:
-        print('发送失败')
+        print(f'发送失败,原因{e}')
     finally:
         smtpObj.quit()
 
@@ -50,3 +52,4 @@ if __name__ == '__main__':
     if'失败' not in weather_info:
         print('正在发送邮件')
         sendmail(weather_info)
+
