@@ -23,3 +23,4 @@ pip
        AMAP_KEY: ${{ secrets.AMAP_KEY }}
        MAIL_PASS: ${{ secrets.MAIL_PASS }}
      run: python tianqiyubao.py
+#
