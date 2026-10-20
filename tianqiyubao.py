@@ -20,7 +20,7 @@ def getweather():
        weather = forecast['casts'][1]
        msg=(
         f'城市: {forecast['city']}\n'
-        f'日期: {weather['data']}\n'
+        f'日期: {weather['date']}\n'
         f'夜间天气: {weather['nightweather']}\n'
         f'白天温度: {weather['daytemp']}风\n'
 
