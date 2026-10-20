@@ -35,7 +35,7 @@ def sendmail(self):
     message['Subject']=Header('每日天气推送','utf-8')
     try:
         smtpObj = smtplib.SMTP_SSL('smtp.qq.com',465)
-        smtpObj.login(mail_user,mail_password)
+        smtpObj.login(mail_user,mail_pass)
         smtpObj.sendmail(mail_user,[mail_user],message.as_string())
         print('发送成功')
     except Exception as e:
