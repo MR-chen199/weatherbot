@@ -36,6 +36,7 @@ def sendmail(content):
     message['From'] = f'WeatherBot <{mail_user}>'
     message['To'] = f'Master <{mail_user}>'
     message['Subject']='每日天气推送'
+    smtpObj = null
     try:
         smtpObj = smtplib.SMTP_SSL('smtp.qq.com',465)
         print('发送的邮箱为',mail_user)
@@ -45,8 +46,11 @@ def sendmail(content):
     except Exception as e:
         print(f'发送失败,原因{e}')
     finally:
-        smtpObj.quit()
-
+        if smtpObj is not null:
+            try:
+                smtpObj.quit()
+            except:
+                pass
 if __name__ == '__main__':
     print('正在获取天气')
     weather_info=getweather()
