@@ -38,7 +38,8 @@ def sendmail(content):
     message['Subject']='每日天气推送'
     smtpObj = None
     try:
-        smtpObj = smtplib.SMTP_SSL('smtp.qq.com',465)
+        smtpObj = smtplib.SMTP_SSL('smtp.qq.com',587)
+        smtpObj.starttls()
         print('发送的邮箱为',mail_user)
         smtpObj.login(mail_user,mail_pass)
         smtpObj.sendmail(mail_user,[mail_user],message.as_string())
