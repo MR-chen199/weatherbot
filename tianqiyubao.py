@@ -46,7 +46,7 @@ def sendmail(content):
     except Exception as e:
         print(f'发送失败,原因{e}')
     finally:
-        if smtpObj is not null:
+        if smtpObj is not None:
             try:
                 smtpObj.quit()
             except:
